@@ -4,85 +4,23 @@ const Item = require("../models/Item");
 const Image = require("../models/Image");
 const Feature = require("../models/Feature");
 const Activity = require("../models/Activity");
-const Booking = require("../models/Booking");
-const Member = require("../models/Member");
-const Users = require("../models/Users");
+// const Booking = require('../models/Booking');
+// const Member = require('../models/Member');
+// const Users = require('../models/Users');
 const fs = require("fs-extra");
 const path = require("path");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 
 module.exports = {
-  viewSignin: async (req, res) => {
-    try {
-      const alertMessage = req.flash("alertMessage");
-      const alertStatus = req.flash("alertStatus");
-      const alert = { message: alertMessage, status: alertStatus };
-      if (req.session.user == null || req.session.user == undefined) {
-        res.render("index", {
-          alert,
-          title: "atapKatulistiwa | Login",
-        });
-      } else {
-        res.redirect("/admin/dashboard");
-      }
-    } catch (error) {
-      res.redirect("/admin/signin");
-    }
+  viewDashboard: (req, res) => {
+    res.render("admin/dashboard/view_dashboard", {
+      title: "atapKatulistiwa | Dashboard",
+    });
   },
-
-  actionSignin: async (req, res) => {
-    try {
-      const { username, password } = req.body;
-      const user = await Users.findOne({ username: username });
-      if (!user) {
-        req.flash("alertMessage", "User yang anda masukan tidak ada!!");
-        req.flash("alertStatus", "danger");
-        res.redirect("/admin/signin");
-      }
-      const isPasswordMatch = await bcrypt.compare(password, user.password);
-      if (!isPasswordMatch) {
-        req.flash("alertMessage", "Password yang anda masukan tidak cocok!!");
-        req.flash("alertStatus", "danger");
-        res.redirect("/admin/signin");
-      }
-
-      req.session.user = {
-        id: user.id,
-        username: user.username,
-        role: user.role,
-      };
-
-      res.redirect("/admin/dashboard");
-    } catch (error) {
-      res.redirect("/admin/signin");
-    }
-  },
-
-  actionLogout: (req, res) => {
-    req.session.destroy();
-    res.redirect("/admin/signin");
-  },
-
-  viewDashboard: async (req, res) => {
-    try {
-      const member = await Member.find();
-      const booking = await Booking.find();
-      const item = await Item.find();
-      res.render("admin/dashboard/view_dashboard", {
-        title: "atapKatulistiwa | Dashboard",
-        user: req.session.user,
-        member,
-        booking,
-        item,
-      });
-    } catch (error) {
-      res.redirect("/admin/dashboard");
-    }
-  },
-
   viewCategory: async (req, res) => {
     try {
       const category = await Category.find();
+      // console.log(category);
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
       const alert = { message: alertMessage, status: alertStatus };
@@ -90,13 +28,12 @@ module.exports = {
         category,
         alert,
         title: "atapKatulistiwa | Category",
-        user: req.session.user,
+        // user: req.session.user
       });
     } catch (error) {
       res.redirect("/admin/category");
     }
   },
-
   addCategory: async (req, res) => {
     try {
       const { name } = req.body;
@@ -111,7 +48,6 @@ module.exports = {
       res.redirect("/admin/category");
     }
   },
-
   editCategory: async (req, res) => {
     try {
       const { id, name } = req.body;
@@ -121,7 +57,7 @@ module.exports = {
       category.name = name;
       await category.save();
       req.flash("alertMessage", "Success Update Category");
-      req.flash("alertStatus", "success");
+      req.flash("alertStatus", "warning");
       res.redirect("/admin/category");
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -129,14 +65,13 @@ module.exports = {
       res.redirect("/admin/category");
     }
   },
-
   deleteCategory: async (req, res) => {
     try {
       const { id } = req.params;
       const category = await Category.findOne({ _id: id });
       await category.remove();
       req.flash("alertMessage", "Success Delete Category");
-      req.flash("alertStatus", "success");
+      req.flash("alertStatus", "danger");
       res.redirect("/admin/category");
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -144,7 +79,6 @@ module.exports = {
       res.redirect("/admin/category");
     }
   },
-
   viewBank: async (req, res) => {
     try {
       const bank = await Bank.find();
@@ -155,7 +89,7 @@ module.exports = {
         title: "atapKatulistiwa | Bank",
         alert,
         bank,
-        user: req.session.user,
+        // user: req.session.user
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -163,7 +97,6 @@ module.exports = {
       res.redirect("/admin/bank");
     }
   },
-
   addBank: async (req, res) => {
     try {
       const { name, nameBank, nomorRekening } = req.body;
@@ -183,7 +116,6 @@ module.exports = {
       res.redirect("/admin/bank");
     }
   },
-
   editBank: async (req, res) => {
     try {
       const { id, name, nameBank, nomorRekening } = req.body;
@@ -213,7 +145,6 @@ module.exports = {
       res.redirect("/admin/bank");
     }
   },
-
   deleteBank: async (req, res) => {
     try {
       const { id } = req.params;
@@ -229,13 +160,11 @@ module.exports = {
       res.redirect("/admin/bank");
     }
   },
-
   viewItem: async (req, res) => {
     try {
       const item = await Item.find()
         .populate({ path: "imageId", select: "id imageUrl" })
         .populate({ path: "categoryId", select: "id name" });
-
       const category = await Category.find();
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
@@ -246,7 +175,7 @@ module.exports = {
         alert,
         item,
         action: "view",
-        user: req.session.user,
+        // user: req.session.user
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -254,13 +183,13 @@ module.exports = {
       res.redirect("/admin/item");
     }
   },
-
   addItem: async (req, res) => {
     try {
       const { categoryId, title, price, city, about } = req.body;
       // console.log(req.files);
       if (req.files.length > 0) {
         const category = await Category.findOne({ _id: categoryId });
+        console.log(category);
         const newItem = {
           categoryId,
           title,
@@ -269,13 +198,17 @@ module.exports = {
           city,
         };
         const item = await Item.create(newItem);
+        // console.log(item);
         category.itemId.push({ _id: item._id });
         await category.save();
         for (let i = 0; i < req.files.length; i++) {
+          // console.log('masuk')
           const imageSave = await Image.create({
             imageUrl: `images/${req.files[i].filename}`,
           });
+          // console.log(imageSave);
           item.imageId.push({ _id: imageSave._id });
+          // console.log(imageId);
           await item.save();
         }
         req.flash("alertMessage", "Success Add Item");
@@ -296,6 +229,7 @@ module.exports = {
         path: "imageId",
         select: "id imageUrl",
       });
+      // console.log(item);
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
       const alert = { message: alertMessage, status: alertStatus };
@@ -304,7 +238,6 @@ module.exports = {
         alert,
         item,
         action: "show image",
-        user: req.session.user,
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -312,17 +245,13 @@ module.exports = {
       res.redirect("/admin/item");
     }
   },
-
   showEditItem: async (req, res) => {
     try {
       const { id } = req.params;
       const item = await Item.findOne({ _id: id })
         .populate({ path: "imageId", select: "id imageUrl" })
         .populate({ path: "categoryId", select: "id name" });
-
-      console.log(item);
       const category = await Category.find();
-      // console.log(category)
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
       const alert = { message: alertMessage, status: alertStatus };
@@ -332,24 +261,23 @@ module.exports = {
         item,
         category,
         action: "edit",
-        user: req.session.user,
+        // user: req.session.user
       });
     } catch (error) {
-      console.log(error);
       req.flash("alertMessage", `${error.message}`);
       req.flash("alertStatus", "danger");
       res.redirect("/admin/item");
     }
   },
-
   editItem: async (req, res) => {
     try {
       const { id } = req.params;
       const { categoryId, title, price, city, about } = req.body;
+      console.log(req.files);
+
       const item = await Item.findOne({ _id: id })
         .populate({ path: "imageId", select: "id imageUrl" })
         .populate({ path: "categoryId", select: "id name" });
-
       if (req.files.length > 0) {
         for (let i = 0; i < item.imageId.length; i++) {
           const imageUpdate = await Image.findOne({ _id: item.imageId[i]._id });
@@ -383,7 +311,6 @@ module.exports = {
       res.redirect("/admin/item");
     }
   },
-
   deleteItem: async (req, res) => {
     try {
       const { id } = req.params;
@@ -410,7 +337,6 @@ module.exports = {
       res.redirect("/admin/item");
     }
   },
-
   viewDetailItem: async (req, res) => {
     const { itemId } = req.params;
     try {
@@ -427,7 +353,7 @@ module.exports = {
         itemId,
         feature,
         activity,
-        user: req.session.user,
+        // user: req.session.user
       });
     } catch (error) {
       req.flash("alertMessage", `${error.message}`);
@@ -463,7 +389,6 @@ module.exports = {
       res.redirect(`/admin/item/show-detail-item/${itemId}`);
     }
   },
-
   editFeature: async (req, res) => {
     const { id, name, qty, itemId } = req.body;
     try {
@@ -491,7 +416,6 @@ module.exports = {
       res.redirect(`/admin/item/show-detail-item/${itemId}`);
     }
   },
-
   deleteFeature: async (req, res) => {
     const { id, itemId } = req.params;
     try {
@@ -515,7 +439,6 @@ module.exports = {
       res.redirect(`/admin/item/show-detail-item/${itemId}`);
     }
   },
-
   addActivity: async (req, res) => {
     const { name, type, itemId } = req.body;
 
@@ -544,7 +467,6 @@ module.exports = {
       res.redirect(`/admin/item/show-detail-item/${itemId}`);
     }
   },
-
   editActivity: async (req, res) => {
     const { id, name, type, itemId } = req.body;
     try {
@@ -572,7 +494,6 @@ module.exports = {
       res.redirect(`/admin/item/show-detail-item/${itemId}`);
     }
   },
-
   deleteActivity: async (req, res) => {
     const { id, itemId } = req.params;
     try {
@@ -597,69 +518,9 @@ module.exports = {
     }
   },
 
-  viewBooking: async (req, res) => {
-    try {
-      const booking = await Booking.find()
-        .populate("memberId")
-        .populate("bankId");
-
-      res.render("admin/booking/view_booking", {
-        title: "atapKatulistiwa | Booking",
-        user: req.session.user,
-        booking,
-      });
-    } catch (error) {
-      res.redirect("/admin/booking");
-    }
-  },
-
-  showDetailBooking: async (req, res) => {
-    const { id } = req.params;
-    try {
-      const alertMessage = req.flash("alertMessage");
-      const alertStatus = req.flash("alertStatus");
-      const alert = { message: alertMessage, status: alertStatus };
-
-      const booking = await Booking.findOne({ _id: id })
-        .populate("memberId")
-        .populate("bankId");
-
-      res.render("admin/booking/show_detail_booking", {
-        title: "atapKatulistiwa | Detail Booking",
-        user: req.session.user,
-        booking,
-        alert,
-      });
-    } catch (error) {
-      res.redirect("/admin/booking");
-    }
-  },
-
-  actionConfirmation: async (req, res) => {
-    const { id } = req.params;
-    try {
-      const booking = await Booking.findOne({ _id: id });
-      booking.payments.status = "Accept";
-      await booking.save();
-      req.flash("alertMessage", "Success Confirmation Pembayaran");
-      req.flash("alertStatus", "success");
-      res.redirect(`/admin/booking/${id}`);
-    } catch (error) {
-      res.redirect(`/admin/booking/${id}`);
-    }
-  },
-
-  actionReject: async (req, res) => {
-    const { id } = req.params;
-    try {
-      const booking = await Booking.findOne({ _id: id });
-      booking.payments.status = "Reject";
-      await booking.save();
-      req.flash("alertMessage", "Success Reject Pembayaran");
-      req.flash("alertStatus", "success");
-      res.redirect(`/admin/booking/${id}`);
-    } catch (error) {
-      res.redirect(`/admin/booking/${id}`);
-    }
+  viewBooking: (req, res) => {
+    res.render("admin/booking/view_booking", {
+      title: "atapKatulistiwa | Booking",
+    });
   },
 };
