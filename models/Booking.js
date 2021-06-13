@@ -3,11 +3,11 @@ const { ObjectId } = mongoose.Schema;
 
 const bookingSchema = new mongoose.Schema({
   bookingStartDate: {
-    type: Date,
+    type: String,
     required: true
   },
   bookingEndDate: {
-    type: Date,
+    type: String,
     required: true
   },
   invoice: {
