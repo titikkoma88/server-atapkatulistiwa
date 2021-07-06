@@ -1,8 +1,10 @@
 var seeder = require('mongoose-seed');
 var mongoose = require('mongoose');
 
-// Connect to MongoDB via Mongoose
-seeder.connect('mongodb://127.0.0.1:27017/db_ataplangit', {
+// Connect to MongoDB via Mongoose 
+// seeder.connect('mongodb://127.0.0.1:27017/db_ataplangit', {
+seeder.connect('mongodb+srv://jiepiranha:@Bdw9488@cluster0.xfxee.mongodb.net/db_atapkatulistiwa?retryWrites=true&w=majority', {
+
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: true,
