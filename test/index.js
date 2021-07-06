@@ -61,12 +61,12 @@ describe('API ENDPOINT TESTING', () => {
       duration: 2,
       bookingStartDate: '9-4-2020',
       bookingEndDate: '11-4-2020',
-      firstName: 'itce',
-      lastName: 'diasari',
-      email: 'itce@gmail.com',
-      phoneNumber: '08150008989',
-      accountHolder: 'itce',
-      bankFrom: 'BNI',
+      firstName: 'panji',
+      lastName: 'hadjarati',
+      email: 'panji@gmail.com',
+      phoneNumber: '08123456789',
+      accountHolder: 'panji',
+      bankFrom: 'BNI Syariah',
     }
     chai.request(app).post('/api/v1/member/booking-page')
       .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -91,6 +91,7 @@ describe('API ENDPOINT TESTING', () => {
         expect(res.body.booking).to.have.all.keys('payments', '_id', 'invoice', 'bookingStartDate', 'bookingEndDate', 'total', 'itemId', 'memberId', '__v')
         expect(res.body.booking.payments).to.have.all.keys('status', 'proofPayment', 'bankFrom', 'accountHolder')
         expect(res.body.booking.itemId).to.have.all.keys('_id', 'title', 'price', 'duration')
+        console.log(res.body.booking)
         done();
       })
   })

@@ -2,7 +2,7 @@ var seeder = require('mongoose-seed');
 var mongoose = require('mongoose');
 
 // Connect to MongoDB via Mongoose
-seeder.connect('mongodb://127.0.0.1:27017/db_staycation', {
+seeder.connect('mongodb://127.0.0.1:27017/db_ataplangit', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: true,
@@ -14,7 +14,6 @@ seeder.connect('mongodb://127.0.0.1:27017/db_staycation', {
     './models/Category',
     './models/Bank',
     './models/Item',
-    './models/Feature',
     './models/Activity',
     './models/Member',
     './models/Image',
@@ -24,7 +23,7 @@ seeder.connect('mongodb://127.0.0.1:27017/db_staycation', {
   ]);
 
   // Clear specified collections
-  seeder.clearModels(['Category', 'Bank', 'Item', 'Member', 'Item', 'Feature', 'Image', 'Booking', 'Users'], function () {
+  seeder.clearModels(['Category', 'Bank', 'Item', 'Member', 'Item', 'Image', 'Booking', 'Users'], function () {
 
     // Callback to populate DB once collections have been cleared
     seeder.populateModels(data, function () {
@@ -41,7 +40,7 @@ var data = [
     'documents': [
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc901111'),
-        name: 'Houses with beauty backyard',
+        name: 'Mounts In Java Island',
         itemId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902222') },
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902223') },
@@ -51,7 +50,7 @@ var data = [
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc901112'),
-        name: 'Hotels with large living room',
+        name: 'Mounts In Sumatera Island',
         itemId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902226') },
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902227') },
@@ -61,7 +60,7 @@ var data = [
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc901113'),
-        name: 'Apartment with kitchen',
+        name: 'Mounts In Sulawesi Island',
         itemId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902230') },
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902231') },
@@ -79,13 +78,13 @@ var data = [
       // Tabby Town
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-        title: 'Tabby Town',
+        title: 'MT Slamet',
         price: 12,
         sumBooking: 1,
-        country: 'Indonesia',
-        city: 'Lampung',
+        country: 'Central Java',
+        city: 'Purbalingga',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Slamet or Gunung Slamet is an active stratovolcano in the Purbalingga Regency of Central Java, Indonesia. It has a cluster of around three dozen cinder cones on the lower southeast-northeast flanks and a single cinder cone on the western flank. The volcano is composed of two overlapping edifices. Four craters are found at the summit. Historical eruptions have been recorded since the eighteenth century.',
         unit: 'night',
         imageId: [
           // done
@@ -94,24 +93,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb2') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb3') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa09') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa10') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa11') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa12') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa13') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa14') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa15') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa16') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb05') },
@@ -125,13 +106,13 @@ var data = [
       {
         // done
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-        title: 'Seattle Rain',
+        title: 'MT Ciremai',
         price: 20,
         sumBooking: 2,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'West Java',
+        city: 'Majalengka',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Ciremai/Cereme (or Ciremay) is a dominating symmetrical stratovolcano in West Java, Indonesia. It is located to the southwest of the major town of Cirebon. Mt Ciremai is strikingly visible towards the south from the main west-east corridor (Jakarta-Surabaya) rail link along the north coast of Java. It is the highest point of West Java.',
         unit: 'night',
         imageId: [
           // done
@@ -140,24 +121,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb5') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb6') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -171,13 +134,13 @@ var data = [
       // Wodden Pit
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902224'),
-        title: 'Wodden Pit',
+        title: 'MT Sumbing',
         price: 20,
         sumBooking: 3,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'Central Java',
+        city: 'Magelang',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Sumbing or Gunung Sumbing is an active stratovolcano in Central Java, Indonesia that is symmetrical like its neighbour, Mount Sindoro. The only report of historical eruptions is from 1730. It has created a small phreatic crater at the summit.',
         unit: 'night',
         imageId: [
           // done
@@ -186,24 +149,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb8') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb9') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -217,13 +162,13 @@ var data = [
       // Anggana
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902225'),
-        title: 'Anggana',
+        title: 'MT Arjuno',
         price: 20,
         sumBooking: 4,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'East Java',
+        city: 'Malang',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Arjuno-Welirang is a stratovolcano in the province of East Java on Java, Indonesia. Mount Arjuno-Welirang lies about 50 kilometers (31 mi) south of Surabaya, and 20 kilometers (12 mi) north of Malang. It is a twin volcano, with the twins being Arjuno and Welirang. There is at least one other stratovolcano in the area, and there are around 10 pyroclastic cones nearby. They are located in a 6 km line between Arjuno and Welirang. The Arjuno-Welirang volcanic complex itself lies in the older two volcanoes, Mount Ringgit to the east and Mount Linting to the south. The summit lacks vegetation. Fumarolic areas with sulfur deposits are found in several locations on Welirang.',
         unit: 'night',
         imageId: [
           // done
@@ -232,24 +177,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd11') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd12') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -263,13 +190,13 @@ var data = [
       // Green Park
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902226'),
-        title: 'Green Park',
+        title: 'MT Dempo',
         price: 20,
         sumBooking: 5,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'South Sumatera',
+        city: 'Palembang',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Dempo is the highest stratovolcano in South Sumatra province that rises above Pasumah Plain near Pagar Alam and adjacent with Bengkulu Province. Seven craters are found around the summit. A 400-metre (1,300 ft) wide lake is found at the north-west end of the crater complex.',
         unit: 'night',
         imageId: [
           // done
@@ -278,24 +205,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd14') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd15') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -309,13 +218,13 @@ var data = [
       // Podo Wae
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902227'),
-        title: 'Podo Wae',
+        title: 'MT Singgalang',
         price: 20,
         sumBooking: 6,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'West Sumatera',
+        city: 'Padang',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Singgalang (Gunung Singgalang in Indonesian) is a volcano in West Sumatra, Indonesia, about 10 km to the southwest of the town of Bukittinggi. Its elevation is 2,877 m (9,439 ft). It is a twin volcano with Mount Tandikat, which is located to the south-south-west of Singgalang. However, only Tandikat has had historical volcanic activity. Bukittinggi and the smaller town of Padang Panjang are located towards the east of the mountain.',
         unit: 'night',
         imageId: [
           // done
@@ -324,24 +233,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd17') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd18') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -355,13 +246,13 @@ var data = [
       // Silver Rain
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902228'),
-        title: 'Silver Rain',
+        title: 'MT Toba',
         price: 20,
         sumBooking: 7,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'North Sumatera',
+        city: 'Medan',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Toba is a giant volcano, namely an active volcano in a very large category located in the province of North Sumatra and is estimated to last erupted about 74,000 years ago.',
         unit: 'night',
         imageId: [
           // done
@@ -370,24 +261,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd20') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd21') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -401,13 +274,13 @@ var data = [
       // Cashville
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902229'),
-        title: 'Cashville',
+        title: 'MT Leuser',
         price: 20,
         sumBooking: 8,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'Aceh',
+        city: 'Gayo Lues',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Gunung Leuser National Park is a national park covering 7,927 km2 in northern Sumatra, Indonesia, straddling the border of North Sumatra and Aceh provinces, a fourth portion and three-fourths portion, respectively. The national park, settled in the Barisan mountain range, is named after Mount Leuser (3,119 m), and protects a wide range of ecosystems. An orangutan sanctuary at Bukit Lawang is located within the park. Together with Bukit Barisan Selatan and Kerinci Seblat National Parks, it forms a World Heritage Site, the Tropical Rainforest Heritage of Sumatra.',
         unit: 'night',
         imageId: [
           // done
@@ -416,24 +289,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd23') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd24') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -447,13 +302,13 @@ var data = [
       // PS Wood
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902230'),
-        title: 'PS Wood',
+        title: 'MT Bawakaraeng',
         price: 20,
         sumBooking: 9,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'South Sulawesi',
+        city: 'Gowa',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Bawakaraeng is located in Gowa Regency, South Sulawesi. On the slopes of this mountain there is an elevation area, Malino, a famous tourist spot in South Sulawesi. Ecologically this mountain has an important position because it is a source of water storage for Kabupaten Gowa, Makassar City, Kabupaten Bantaeng, Kabupaten Bulukumba and Kabupaten Sinjai.',
         unit: 'night',
         imageId: [
           // done
@@ -462,24 +317,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd26') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd27') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -493,13 +330,13 @@ var data = [
       // One Five
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902231'),
-        title: 'One Five',
+        title: 'MT Latimojong',
         price: 20,
         sumBooking: 11,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'South Sulawesi',
+        city: 'Enrekang',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Latimojong (Indonesian: Gunung Latimojong), also known by its local name Rantemario, is a mountain located in the province of South Sulawesi, Sulawesi, Indonesia. At 3,478 metres (11,411 ft), it is the highest mountain on the island, although some sources state Mount Rantekombola as the highest point.',
         unit: 'night',
         imageId: [
           // done
@@ -508,24 +345,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd29') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd30') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -539,13 +358,13 @@ var data = [
       // Minimal
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902232'),
-        title: 'Minimal',
+        title: 'MT Klabat',
         price: 20,
         sumBooking: 13,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'North Sulawesi',
+        city: 'North Minahasa',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Klabat is the highest volcano on Sulawesi island, located in the east of Manado city, North Sulawesi, Indonesia. A 170 × 250 m wide, shallow crater lake is found at the summit. There are no confirmed historical eruptions of the volcano. A report of eruption taking place in 1683 is thought to have been produced by the Mount Tongkoko volcano instead.',
         unit: 'night',
         imageId: [
           // done
@@ -554,24 +373,6 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd31') },
           // done
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd33') }
-        ],
-        featureId: [
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -585,13 +386,13 @@ var data = [
       // Stays Home
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902233'),
-        title: 'Stays Home',
+        title: 'MT Gendang Dewa',
         price: 20,
         sumBooking: 14,
-        country: 'Indonesia',
-        city: 'Bandung',
+        country: 'West Sulawesi',
+        city: 'Mamasa',
         isPopular: false,
-        description: 'Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.',
+        description: 'Mount Gandang Dewata is one of the highest mountains located in the western part of Sulawesi (Quarlesi mountains) and the second highest mountain in Sulawesi after Mount Latimojong (3478 masl) located in Enrekang district. In the mountain groove of the Gandang Dewata mountains, there are people from the Rante Pongkok Hamlet, Mamasa Regency, who defend their lives from farming activities. Sociologically, Gandang Dewata has had an emotional relationship with the people of the last village of Rante Pongkok Village for a long time. With their unique local wisdom, the people of Rante Pongkok Village are trying to protect Gods very complex creation in the forest. By linking the existence of the descending Gods who sound the drums who always provide information to the community through the forest, and the forest as land to support life, the forest is ethically and morally legitimized to be protected and loved.',
         unit: 'night',
         imageId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd36') },
@@ -601,23 +402,33 @@ var data = [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd35') },
           // done
         ],
-        featureId: [
+        activityId: [
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb02') },
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb03') },
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb04') }
+        ],
+        categoryId: '5e96cbe292b97300fc901113'
+      },
+      
+      // Stays Home
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
+        title: 'MT Semeru',
+        price: 20,
+        sumBooking: 14,
+        country: 'East Java',
+        city: 'Malang',
+        isPopular: false,
+        description: 'Semeru is Java’s highest peak and has been active for decades which is part of the Bromo Tengger Semeru National Park. A cloud of black volcanic ash and sand is frequently released from near the summit, sometimes once an hour, sometimes as often as every ten minutes. There have been numerous fatalities, but it is a popular and safe hike if you treat the mountain with respect and as Java’s highest peak, it is one of the finest hikes in Indonesia.',
+        unit: 'night',
+        imageId: [
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd37') },
           // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01') },
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd38') },
           // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02') },
+          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd39') },
           // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07') },
-          // done
-          { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08') }
         ],
         activityId: [
           { _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01') },
@@ -638,292 +449,168 @@ var data = [
       {
         // done
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb1'),
-        imageUrl: 'images/image-mostpicked-1-min.jpg'
+        imageUrl: 'images/big-slamet.png'
       },
       // done
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb2'),
-        imageUrl: 'images/image-mostpicked-2-min.jpg'
+        imageUrl: 'images/small-slamet.png'
       },
       // done
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb3'),
-        imageUrl: 'images/image-mostpicked-3-min.jpg'
+        imageUrl: 'images/small-slamet-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb4'),
-        imageUrl: 'images/image-mostpicked-4-min.jpg'
+        imageUrl: 'images/big-ciremai.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb5'),
-        imageUrl: 'images/item-1.png'
+        imageUrl: 'images/small-ciremai.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb6'),
-        imageUrl: 'images/image-mostpicked-5-min.jpg'
+        imageUrl: 'images/small-ciremai-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb7'),
-        imageUrl: 'images/image-mostpicked-7-min.jpg'
+        imageUrl: 'images/big-sumbing.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb8'),
-        imageUrl: 'images/image-mostpicked-8-min.jpg'
+        imageUrl: 'images/small-sumbing.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cdb9'),
-        imageUrl: 'images/image-mostpicked-9-min.jpg'
+        imageUrl: 'images/small-sumbing-2.png'
       },
       {
         // done
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd10'),
-        imageUrl: 'images/image-mostpicked-10-min.jpg'
+        imageUrl: 'images/big-arjuno.png'
       },
       // done
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd11'),
-        imageUrl: 'images/image-mostpicked-11-min.jpg'
+        imageUrl: 'images/small-arjuno.png'
       },
       // done
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd12'),
-        imageUrl: 'images/image-mostpicked-12-min.jpg'
+        imageUrl: 'images/small-arjuno-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd13'),
-        imageUrl: 'images/image-mostpicked-13-min.jpg'
+        imageUrl: 'images/big-dempo.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd14'),
-        imageUrl: 'images/image-mostpicked-14-min.jpg'
+        imageUrl: 'images/small-dempo.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd15'),
-        imageUrl: 'images/image-mostpicked-15-min.jpg'
+        imageUrl: 'images/small-dempo-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd16'),
-        imageUrl: 'images/image-category-1-min.jpg'
+        imageUrl: 'images/big-singgalang.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd17'),
-        imageUrl: 'images/image-category-2-min.jpg'
+        imageUrl: 'images/small-singgalang.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd18'),
-        imageUrl: 'images/image-category-3-min.jpg'
+        imageUrl: 'images/small-singgalang-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd19'),
-        imageUrl: 'images/image-category-4-min.jpg'
+        imageUrl: 'images/big-toba.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd20'),
-        imageUrl: 'images/image-category-5-min.jpg'
+        imageUrl: 'images/small-toba.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd21'),
-        imageUrl: 'images/image-category-6-min.jpg'
+        imageUrl: 'images/small-toba-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd22'),
-        imageUrl: 'images/image-category-7-min.jpg'
+        imageUrl: 'images/big-leuser.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd23'),
-        imageUrl: 'images/image-category-8-min.jpg'
+        imageUrl: 'images/small-leuser.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd24'),
-        imageUrl: 'images/image-category-9-min.jpg'
+        imageUrl: 'images/small-leuser-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd25'),
-        imageUrl: 'images/image-category-7-min.jpg'
+        imageUrl: 'images/big-bawakaraeng.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd26'),
-        imageUrl: 'images/image-category-8-min.jpg'
+        imageUrl: 'images/small-bawakaraeng.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd27'),
-        imageUrl: 'images/image-category-9-min.jpg'
+        imageUrl: 'images/small-bawakaraeng-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd28'),
-        imageUrl: 'images/image-category-10-min.jpg'
+        imageUrl: 'images/big-latimojong.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd29'),
-        imageUrl: 'images/image-category-11-min.jpg'
+        imageUrl: 'images/small-latimojong.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd30'),
-        imageUrl: 'images/image-category-12-min.jpg'
+        imageUrl: 'images/small-latimojong-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd31'),
-        imageUrl: 'images/image-category-13-min.jpg'
+        imageUrl: 'images/big-klabat.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd32'),
-        imageUrl: 'images/image-category-14-min.jpg'
+        imageUrl: 'images/small-klabat.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd33'),
-        imageUrl: 'images/image-category-15-min.jpg'
+        imageUrl: 'images/small-klabat-2.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd34'),
-        imageUrl: 'images/image-category-16-min.jpg'
+        imageUrl: 'images/big-gendang.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd35'),
-        imageUrl: 'images/image-category-17-min.jpg'
+        imageUrl: 'images/small-gendang.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd36'),
-        imageUrl: 'images/image-category-18-min.jpg'
+        imageUrl: 'images/small-gendang-2.png'
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd37'),
+        imageUrl: 'images/big-semeru.png'
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd38'),
+        imageUrl: 'images/small-semeru.png'
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cd39'),
+        imageUrl: 'images/small-semeru-2.png'
       },
     ]
   },
   // end image
-  // start feature
-  {
-    'model': 'Feature',
-    'documents': [
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa01'),
-        name: 'bedroom',
-        qty: 2,
-        imageUrl: 'images/feature-1.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa02'),
-        name: 'living room',
-        qty: 23,
-        imageUrl: 'images/feature-2.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa03'),
-        name: 'televison',
-        qty: 12,
-        imageUrl: 'images/feature-3.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa04'),
-        name: 'televison',
-        qty: 5,
-        imageUrl: 'images/feature-4.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa05'),
-        name: 'mbp/s',
-        qty: 5,
-        imageUrl: 'images/feature-5.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa06'),
-        name: 'unit ready',
-        qty: 5,
-        imageUrl: 'images/feature-6.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa07'),
-        name: 'refigrator',
-        qty: 5,
-        imageUrl: 'images/feature-7.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa08'),
-        name: 'televion',
-        qty: 5,
-        imageUrl: 'images/feature-8.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-      },
-      // item 2
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa09'),
-        name: 'bedroom',
-        qty: 2,
-        imageUrl: 'images/feature-1.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa10'),
-        name: 'living room',
-        qty: 23,
-        imageUrl: 'images/feature-2.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa11'),
-        name: 'televison',
-        qty: 12,
-        imageUrl: 'images/feature-3.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa12'),
-        name: 'televison',
-        qty: 5,
-        imageUrl: 'images/feature-4.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa13'),
-        name: 'mbp/s',
-        qty: 5,
-        imageUrl: 'images/feature-5.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa14'),
-        name: 'unit ready',
-        qty: 5,
-        imageUrl: 'images/feature-6.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa15'),
-        name: 'refigrator',
-        qty: 5,
-        imageUrl: 'images/feature-7.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      },
-      {
-        // done
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90aa16'),
-        name: 'televion',
-        qty: 5,
-        imageUrl: 'images/feature-8.png',
-        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
-      }
-    ]
-  },
-  // end feature
   // start activity
   {
     'model': 'Activity',
@@ -931,60 +618,89 @@ var data = [
       // done
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb01'),
-        name: 'Green Lake',
-        type: 'Nature',
-        imageUrl: 'images/activity-1.png',
+        name: 'Owabong Waterpark',
+        type: 'Waterparks',
+        imageUrl: 'images/pic_owabong.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb02'),
-        name: 'Dog Clubs',
-        type: 'Pool',
-        imageUrl: 'images/activity-2.png',
+        name: 'Kutabawa Flower Garden',
+        type: 'Flower Gardens',
+        imageUrl: 'images/pic_kutabawa.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb03'),
-        name: 'Labour and Wait',
-        type: 'Shopping',
-        imageUrl: 'images/activity-3.png',
+        name: 'Curug Tempuran',
+        type: 'Waterfalls',
+        imageUrl: 'images/pic_tempuran.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb04'),
-        name: 'Labour and Wait',
-        type: 'Shopping',
-        imageUrl: 'images/activity-4.png',
+        name: 'Sanggaluri Park',
+        type: 'Wildlife Areas',
+        imageUrl: 'images/pic_sanggaluri.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
       },
       // done 2
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb05'),
-        name: 'Green Lake',
-        type: 'Nature',
-        imageUrl: 'images/activity-3.png',
+        name: 'Kebun Teh Cipasung',
+        type: 'Natures',
+        imageUrl: 'images/pic_cipasung.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb06'),
-        name: 'Dog Clubs',
-        type: 'Pool',
-        imageUrl: 'images/activity-2.png',
+        name: 'Terasering Argapura',
+        type: 'Natures',
+        imageUrl: 'images/pic_teraargapura.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb07'),
-        name: 'Labour and Wait',
-        type: 'Shopping',
-        imageUrl: 'images/activity-1.png',
+        name: 'Cikadongdong River Tubing',
+        type: 'River Tubing',
+        imageUrl: 'images/pic_cikadongdong.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb08'),
-        name: 'Labour and Wait',
-        type: 'Shopping',
+        name: 'Bukit Mercury Sayang Kaak',
+        type: 'Natures',
         imageUrl: 'images/activity-4.png',
         itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902223'),
+      },
+      // done 3
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb09'),
+        name: 'Bromo Tengger Semeru',
+        type: 'National Parks',
+        imageUrl: 'images/pic_tengger.png',
+        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb10'),
+        name: 'Blue Flame Ijen Crater',
+        type: 'Geologic Formations',
+        imageUrl: 'images/pic_ijen.png',
+        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb11'),
+        name: 'Coban Pelangi',
+        type: 'Waterfalls',
+        imageUrl: 'images/pic_cobpelangi.png',
+        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
+      },
+      {
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90bb12'),
+        name: 'Sempu Island',
+        type: 'Nature & Wildlife Areas',
+        imageUrl: 'images/pic_sempu.png',
+        itemId: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
       }
     ]
   },
@@ -996,17 +712,17 @@ var data = [
     'documents': [
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc90cee1'),
-        bookingStartDate: '12-12-2020',
-        bookingEndDate: '12-12-2020',
+        bookingStartDate: '12-12-2021',
+        bookingEndDate: '12-12-2021',
         invoice: 1231231,
         itemId: {
-          _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902222'),
-          title: 'Village Angga',
+          _id: mongoose.Types.ObjectId('5e96cbe292b97300fc902234'),
+          title: 'MT Semeru',
           price: 6,
           duration: 2,
         },
         total: 12,
-        memberId: mongoose.Types.ObjectId('5e96cbe292b97300fc903333'),
+        memberId: mongoose.Types.ObjectId('5e96cbe292b97300fc903334'),
         bankId: mongoose.Types.ObjectId('5e96cbe292b97300fc903323'),
         payments: {
           proofPayment: 'images/bukti.jpeg',
@@ -1024,18 +740,11 @@ var data = [
     'model': 'Member',
     'documents': [
       {
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903333'),
-        firstName: 'Elfin',
-        lastName: 'Sanjaya',
-        email: 'elfinsanjaya12@gmail.com',
-        phoneNumber: '082377954008'
-      },
-      {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903334'),
-        firstName: 'Yein',
-        lastName: 'Narayana',
-        email: 'elfinsanjaya1207@gmail.com',
-        phoneNumber: '082377954008'
+        firstName: 'Panji',
+        lastName: 'Hadjarati',
+        email: 'panjihadjarati@gmail.com',
+        phoneNumber: '081234567890'
       }
     ]
   },
@@ -1044,16 +753,16 @@ var data = [
     'documents': [
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903322'),
-        nameBank: 'Mandiri',
-        nomorRekening: '089898',
-        name: 'elfin',
+        nameBank: 'Bank Mandiri',
+        nomorRekening: '4321 5678',
+        name: 'Atap Katulistiwa',
         imageUrl: 'images/logo bca.png'
       },
       {
         _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903323'),
-        nameBank: 'BCA',
-        nomorRekening: '878678',
-        name: 'elfin',
+        nameBank: 'Bank Central Asia',
+        nomorRekening: '1234 9876',
+        name: 'Atap Katulistiwa',
         imageUrl: 'images/logo mandiri.png'
       }
     ]
@@ -1062,15 +771,14 @@ var data = [
     'model': 'Users',
     'documents': [
       {
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903345'),
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903340'),
         username: 'admin',
         password: 'rahasia',
       },
       {
-        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903346'),
+        _id: mongoose.Types.ObjectId('5e96cbe292b97300fc903341'),
         username: 'superadmin',
         password: 'rahasia',
-        role: 'admin'
       },
     ]
   }
