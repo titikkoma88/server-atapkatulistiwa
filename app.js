@@ -6,6 +6,8 @@ var logger = require("morgan");
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
+// CORS Origin
+const cors = require("cors");
 // import mongoose
 const mongoose = require("mongoose");
 // mongoose.connect("mongodb://127.0.0.1:27017/db_staycation", { 
@@ -26,6 +28,9 @@ const adminRouter = require("./routes/admin");
 const apiRouter = require('./routes/api');
 
 var app = express();
+
+// CORS Origin
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
